@@ -1,5 +1,5 @@
 # https://school.programmers.co.kr/learn/courses/30/lessons/64061
-
+'''
 def solution(board, move):
     answer = 0
     basket = []
@@ -25,3 +25,15 @@ def solution(board, move):
         else:                                    # board 비어있을 때
             continue
     return answer
+    '''
+
+def solution(board, move):
+    answer = 0
+    crane = [0, 0]
+    crane_memo = [0 for _ in range(len(board))]
+    
+    for m in move:
+        
+
+
+    return answer 
