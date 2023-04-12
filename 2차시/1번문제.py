@@ -28,12 +28,32 @@ def solution(board, move):
     '''
 
 def solution(board, move):
-    answer = 0
-    crane = [0, 0]
-    crane_memo = [0 for _ in range(len(board))]
     
-    for m in move:
+    answer = 0
+    depth = 0
+    basket = []
+    
+    for count in range(len(move)):
+        while depth < len(board) and board[depth][move[count]-1] == 0 :
+            depth += 1
+        if depth < len(board):
+            if basket != []:
+                if basket[-1] == board[depth][move[count]-1]:
+                    answer += 2
+                    board[depth][move[count]-1] = 0
+                    basket.pop()
+                else:
+                    basket.append(board[depth][move[count]-1])
+                    board[depth][move[count]-1] = 0
+            else:
+                basket.append(board[depth][move[count]-1])
+                board[depth][move[count]-1] = 0
         
-
+            depth = 0
+        else:
+            depth = 0
 
     return answer 
+
+res = solution([[0,0,0,0,0],[0,0,1,0,3],[0,2,5,0,1],[4,2,4,4,2],[3,5,1,3,1]], [1,5,3,5,1,2,1,4])
+print(res)
