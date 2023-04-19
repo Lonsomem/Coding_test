@@ -6,6 +6,9 @@ def solution(str1, str2):
     letter = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
     str1list = []
     str2list = []
+    str_inter = []
+    str_union = []
+    overall = 0
 
     for i in range(len(str1)-1):
         if str1[i] in letter and str1[i+1] in letter:
@@ -20,8 +23,12 @@ def solution(str1, str2):
             str2list.append(strset)
         else:
             continue
-    
-    for 
+
     
 
+    if len(str_union) != 0:    
+        answer = int((len(str_inter) / len(str_union)) * 65536)
+    else:
+        answer = 1
     return answer
+
